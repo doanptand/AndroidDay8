@@ -11,17 +11,21 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tvHello;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tvHello = findViewById(R.id.tv_hello);
+
+        ((MyApplication) getApplication()).setName("Doan");
+        ((MyApplication) getApplication()).setAge(16);
         tvHello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 intent.putExtra("key_name", "Doan dep trai");
-                Student student = new Student("Doan",17);
+                Student student = new Student("Doan", 17);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("key_student", student);
                 intent.putExtras(bundle);
