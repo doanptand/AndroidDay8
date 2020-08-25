@@ -20,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 intent.putExtra("key_name", "Doan dep trai");
+                Student student = new Student("Doan",17);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("key_student", student);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });

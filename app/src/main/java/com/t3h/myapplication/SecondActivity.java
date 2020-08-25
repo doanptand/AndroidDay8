@@ -14,6 +14,8 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         Intent intent = getIntent();
         String name = intent.getStringExtra("key_name");
+        Student student = (Student) intent.getExtras().getSerializable("key_student");
         Toast.makeText(this,"Hello " + name, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Hello " + student.toString(), Toast.LENGTH_SHORT).show();
     }
 }
