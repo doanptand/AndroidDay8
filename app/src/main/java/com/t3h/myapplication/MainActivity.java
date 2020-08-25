@@ -3,6 +3,7 @@ package com.t3h.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -25,6 +26,17 @@ public class MainActivity extends AppCompatActivity {
                 bundle.putSerializable("key_student", student);
                 intent.putExtras(bundle);
                 startActivity(intent);
+            }
+        });
+
+        tvHello.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                String link = "https://google.com";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(link));
+                startActivity(intent);
+                return true;
             }
         });
 //        Toast.makeText(getApplicationContext(),"dfgadf", Toast.LENGTH_SHORT).show();
